@@ -27,7 +27,15 @@ class contaBancaria
     public function depositar($valor){
 
         $this->saldo += $valor;
+        return 'Deposito de R$ '. $valor;
     }
+
+    public function sacar($valor){
+
+        $this->saldo -= $valor;
+        return 'Saque de R$ '. $valor;
+    }
+    
 }
 
 $conta = new contaBancaria(
@@ -38,11 +46,23 @@ $conta = new contaBancaria(
     '8504',
     0    
 );
+    
+    echo $conta->obterSaldo();
+
+    echo PHP_EOL;
 
     $conta->depositar(500.00);
 
-    echo 'Você depositou R$ '. $this->saldo;
+    echo PHP_EOL;
 
     echo $conta->obterSaldo();
+
+    echo PHP_EOL;
+
+    $conta->sacar(150.00);
+
+    
+
+
 
 ?>
